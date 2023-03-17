@@ -36,7 +36,15 @@ fn handle_connection(mut stream: TcpStream) {
 
     println!("Request: {:#?}", http_request);
 
-    let response = "HTTP/1.1 200 OK\r\n\r\n";
+    let msg = r"  _________________
+< i am a smolserver >
+  -----------------
+         \   ^__^ 
+          \  (oo)\_______
+             (__)\       )\/\
+                 ||----w |
+                 ||     ||";
 
+    let response = format!("HTTP/1.1 200 OK\r\n\r\n{}", msg);
     stream.write_all(response.as_bytes()).unwrap();
 }
